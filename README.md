@@ -48,14 +48,17 @@ Example table creating
 Print out tables names
         
         print "Tables: %s" % db.tables()
+        # Tables: [u'artist', u'track']
 
 Print out columns for table 'artist'
     
         print "Table 'artist' collumns: ", db.columns('artist')
+        # Table 'artist' collumns:  ['artistid', 'artistname']
 
 Print out columns for table
 
         print "Info for table 'artist': %s" % db.table_info('artist')
+        # Info for table 'artist': [(0, u'artistid', u'INTEGER', 0, None, 1), (1, u'artistname', u'TEXT', 0, None, 0)]
 
 Example data insertion
 
@@ -72,11 +75,13 @@ Example SQL execution
                 JOIN artist ON track.trackartist = artist.artistid \
                 WHERE \
                 artistname LIKE '%Sinatra'")
+        # Frank's songs: [(u'My Way',)]
 
 Example truncate data
 
         db.truncate("track")
         print "Tracks count after truncate: %s" % db.execute("SELECT COUNT(*) FROM track")
+        # Tracks count after truncate: [(0,)]
 
 Drop tables
 
